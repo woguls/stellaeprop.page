@@ -21,9 +21,23 @@ const { title, description, twitter,  instagram, github} = Astro.props;
 
     </div>
     <div>
+      <script>
+        document.getElementById('contactForm').addEventListener('submit', submitForm );
+        function submitForm(e) {
+          e.preventDefault();
+          var name = getFromForm('name');
+          var email = getFromForm('email');
+          var message = getFromForm('message');
+          
+        }
+
+        function getFromForm(id) {
+          return document.getElementById(id).value;
+        }
+      </script>
       <section>
         <h2>Get in touch... (coming soon)</h2>
-        <form method="post" action="#">
+        <form id="contactForm">
           <div class="fields">
             <div class="field half">
               <input type="text" name="name" id="name" placeholder="Name" />
