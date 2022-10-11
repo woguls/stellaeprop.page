@@ -1,0 +1,76 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Thumb from "../components/Thumb.astro";
+
+const images = await Astro.glob("../images/*.*");
+
+let description = "";
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{title}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,  initial-scale=1" />
+		<meta name="description" content={description} />
+		
+	
+		<link href="./favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="css/main.css" />
+	  </head>
+	  <body class="is-preload">
+		<div id="wrapper">
+		  <Header title="Stellae Propugnatio" />
+	
+		  <div id="main">
+			{images.map((img)=>(
+				<Thumb
+				  width={img.default.width}
+				  height={img.default.height}
+				  title=""
+				  href={img.default.src } 
+				  description=""
+				/>
+			  ))
+			}
+		  </div>
+	
+		  <Footer
+			title=""
+			description=""
+			tiwtter="https://twitter.com/stellaeprop"
+			instagram="#"
+			github="#"
+		  />
+		</div>
+	
+		<script is:inline src="js/jquery.min.js"></script>
+		<script is:inline src="js/jquery.poptrox.min.js"></script>
+		<script is:inline src="js/browser.min.js"></script>
+		<script is:inline src="js/breakpoints.min.js"></script>
+		<script is:inline src="js/util.js"></script>
+		<script is:inline src="js/main.js"></script>
+	  </body>
+</html>
+<style is:global>
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: #F6F6F6;
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>
