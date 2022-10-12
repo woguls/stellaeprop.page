@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/image": "^0.9.3",
     "astro": "^1.4.7",
+    "firebase": "^9.12.0",
     "sharp": "^0.31.1"
   }
 }
