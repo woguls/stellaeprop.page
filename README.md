@@ -1,3 +1,6 @@
+## Credits
+This project started out as a fork of [ARE44](https://github.com/AREA44/astro-multiverse.git)
+
 # Welcome to [Astro](https://astro.build)
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
