@@ -11,6 +11,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# editor
+.vscode/
+
+#firebase
+.firebase/
 
 # environment variables
 .env
