@@ -37,15 +37,17 @@ const { title, description, twitter,  instagram, github} = Astro.props;
             </div>
           </div>
           <ul class="actions">
-            <li><input type="submit" value="Send" class="primary" /></li>
+            <li><input type="submit" value="Send" class="primary, g-recaptcha"/></li>
             <li><input type="reset" value="Reset" /></li>
           </ul>
         </form>
       </section>
 
+
       <script >
         import { initializeApp, getApps } from 'firebase/app';
         import { getDatabase, ref, push } from "firebase/database";
+        import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
         const firebaseConfig = {
          apiKey: import.meta.env.PUBLIC_APIKEY,
@@ -57,10 +59,15 @@ const { title, description, twitter,  instagram, github} = Astro.props;
           measurementId: import.meta.env.PUBLIC_MEASUREMENTID,
           databaseURL: import.meta.env.PUBLIC_DATABASEURL
         };
+
         const app = initializeApp(firebaseConfig);
-        
+        const appCheck = initializeAppCheck(app, {
+          provider: new ReCaptchaV3Provider(import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY),
+          isTokenAutoRefreshEnabled: true
+        });
 
         document.getElementById('contactForm').addEventListener('submit', submitForm );
+        
         function submitForm(e) {
           e.preventDefault();
           var name = getFromForm('name');
