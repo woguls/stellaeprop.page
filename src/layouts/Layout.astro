@@ -5,8 +5,9 @@ export interface Props {
 
 const { title } = Astro.props;
 import Header from "../components/Header.astro";
-import Footer from "../components/Contact.astro";
+import Contact from "../components/Contact.astro";
 import Thumb from "../components/Thumb.astro";
+import Buy from "../components/Buy.astro";
 
 const images = await Astro.glob("../images/*.*");
 
@@ -41,14 +42,23 @@ let description = "";
 			  ))
 			}
 		  </div>
-	
-		  <Footer
-			title=""
-			description=""
-			tiwtter="https://twitter.com/stellaeprop"
-			instagram="#"
-			github="#"
-		  />
+		  <Buy
+		  title=""
+		  description=""
+		  tiwtter="https://twitter.com/stellaeprop"
+		  instagram="#"
+		  github="#"
+		/>
+		  <Contact
+		  title=""
+		  description=""
+		  tiwtter="https://twitter.com/stellaeprop"
+		  instagram="#"
+		  github="#"
+		/>
+
+
+
 		</div>
 	
 		<script is:inline src="js/jquery.min.js"></script>

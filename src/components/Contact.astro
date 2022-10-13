@@ -1,14 +1,14 @@
 ---
 const { title, description, twitter,  instagram, github} = Astro.props;
 ---
-
+<style>
+  .messageForm { display:block }
+  .messageSent { display:none }
+</style>
 <footer id="contact" class="panel">
   <div class="inner split">
     <div>
-      <section>
-        <h2>{title}</h2>
-        <p>{description}</p>
-      </section>
+
       <section>
         <h2>Find me on ...</h2>
         <ul class="icons">
@@ -22,15 +22,18 @@ const { title, description, twitter,  instagram, github} = Astro.props;
     </div>
     <div>
       
-      <section>
-        <h2>Get in touch... (coming soon)</h2>
+      <section id="messageSentSection" class="messageSent">
+        <h2>Your message was sent</h2>
+      </section>
+      <section id="contactSection" class="messageForm">
+        <h2>Leave a message ...</h2>
         <form id="contactForm">
           <div class="fields">
             <div class="field half">
-              <input type="text" name="name" id="name" placeholder="Name" />
+              <input type="text" name="name" id="name" placeholder="Name" required/>
             </div>
             <div class="field half">
-              <input type="text" name="email" id="email" placeholder="Email" />
+              <input type="text" name="email" id="email" placeholder="Email" required/>
             </div>
             <div class="field">
               <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
@@ -74,7 +77,8 @@ const { title, description, twitter,  instagram, github} = Astro.props;
           var email = getFromForm('email');
           var message = getFromForm('message');
           sendMessage(name, email, message);
-
+          document.getElementById('contactSection').style.display = "none";
+          document.getElementById('messageSentSection').style.display = "block";
         }
 
         function sendMessage(name, email, message) {
