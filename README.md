@@ -1,5 +1,5 @@
 ## Credits
-This project started out as a fork of [ARE44](https://github.com/AREA44/astro-multiverse.git)
+This project started out as a fork of [ARE44/astro-multiverse](https://github.com/AREA44/astro-multiverse.git)
 
 # Welcome to [Astro](https://astro.build)
 
