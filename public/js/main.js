@@ -195,6 +195,7 @@
 
   // Poptrox.
   $main.poptrox({
+    usePopupEasyClose: false,
     baseZIndex: 20000,
     caption: function ($a) {
       var s = "";
