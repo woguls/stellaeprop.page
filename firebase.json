@@ -1,6 +1,9 @@
 {
-    "hosting": {
-      "public": "dist",
-      "ignore": []
-    }
+  "hosting": {
+    "public": "dist",
+    "ignore": []
+  },
+  "database": {
+    "rules": "database.rules.json"
   }
+}
